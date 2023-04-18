@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.HashSet;
 
 
 public class Main {
@@ -14,10 +16,10 @@ public class Main {
 //        кількість разів (наприклад "мама", "тато", "їж їжак желе");
     public static void main (String[] args){
         String [] words = new String[]{"mama", "papa", "paparazzi"};
-        solver(words);
+        task(words);
 
     }
-    public static void solver(String [] words){
+    public static void task(String [] words){
 
         List<String> helpList = new ArrayList<>();
 
@@ -35,7 +37,7 @@ public class Main {
                     helpMap.put(character, 1);
                 }
             }
-
+// шукає парну кількість букв
             boolean isRightWorld = true;
 
             for(Character key: helpMap.keySet()){
@@ -49,6 +51,16 @@ public class Main {
             }
 
         }
+        
+        Set<Character> mySet = new HashSet<>();
+
+        for(String word: helpList){
+            for (Character character: word.toCharArray()){
+                mySet.add(character);
+
+            }
+        }  
+        
     }
 
 //        знаходить набір унікальних символів у словах знайдених слів (для наведеного прикладу
